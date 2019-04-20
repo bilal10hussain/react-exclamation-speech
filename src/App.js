@@ -14,21 +14,30 @@ const Dictaphone = ({
         transcript,
         resetTranscript,
         startListening,
+        stopListening,
         browserSupportsSpeechRecognition
     }) => {
         if (!browserSupportsSpeechRecognition) {
             console.error("Sorry, this browser does not support speech recognition");
-            return null;
+
+            return (
+                <div className="page">
+                    <h1>
+                        Sorry, this browser does not support speech recognition
+                    </h1>
+                </div>
+            )
         }
 
         return (
             <div className="page">
-                <p>
+                <p className="speech__text">
                     <strong>Text:</strong> <br/>
                     {transcript}
                 </p>
 
                 <button className="btn btn__start" onClick={startListening}>Start</button>
+                <button className="btn btn__stop" onClick={stopListening }>Stop</button>
                 <button className="btn" onClick={resetTranscript}>Reset</button>
             </div>
         );
