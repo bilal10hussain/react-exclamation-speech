@@ -134,7 +134,7 @@ function renderLayout(transcript, startListening, stopListening, resetTranscript
         startListening();
 
         if (transcript) {
-            resetTranscript();
+            resetTexts();
         }
     }
 
@@ -146,14 +146,18 @@ function renderLayout(transcript, startListening, stopListening, resetTranscript
 
     function onReset () {
         if (transcript) {
-            resetTranscript();
-            setResult("");
+            resetTexts();
         }
 
         if (playing) {
             stopListening();
             setPlaying(false);
         }
+    }
+
+    function resetTexts() {
+        resetTranscript();
+        setResult("");
     }
 
     function renderText () {
