@@ -132,6 +132,10 @@ function renderLayout(transcript, startListening, stopListening, resetTranscript
     function onStart () {
         setPlaying(true);
         startListening();
+
+        if (transcript) {
+            resetTranscript();
+        }
     }
 
     function onSearch () {
